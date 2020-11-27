@@ -1,0 +1,32 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Lieu </th>
+            <th> Duree </th>
+            <th> Profil </th>
+            <th> Description </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mission of missions">
+            <td> {{ mission.lieu }} </td>
+            <td> {{ mission.duree }} </td>
+            <td> {{ mission.profil }} </td>
+            <td class="w-25 overflow-hidden" style="height:100px; max-height: 100px;"> {{ mission.description }} </td>
+
+            <td>
+                <div class="d-inline-block mr-3">
+                    <button (click)="detailMission(mission.id)" class="btn btn-info"><mat-icon style="vertical-align: sub;">article_outline</mat-icon> Details</button>
+                </div>
+                <div class="d-inline-block" *ngIf="isCommercial()">
+                    <button (click)="updateMission(mission.id)" class="btn btn-warning"><mat-icon style="vertical-align: sub;">edit_outline</mat-icon> Modifier</button>
+                    <button (click)="deleteMission(mission.id)" class="btn btn-danger ml-3"><mat-icon style="vertical-align: sub;">delete_outline</mat-icon> Retirer</button>
+                </div>
+                <!-- <div *ngIf="isCollaborateur()">
+                    <button (click)="toPostule(mission.id)" class="btn btn-info"><mat-icon style="vertical-align: sub;">mail_outline</mat-icon> Postuler</button>
+                </div> -->
+            </td>
+        </tr>
+    </tbody>
+</table>

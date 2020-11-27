@@ -1,0 +1,67 @@
+<div *ngIf="loaded">
+    <form [formGroup]="formGroup" (ngSubmit)="sendForm()">
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Nom</mat-label>
+                <input formControlName="nom" matInput>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Prenom</mat-label>
+                <input formControlName="prenom" matInput>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Diplome</mat-label>
+                <input formControlName="diplome" matInput>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Annee Obtention</mat-label>
+                <input formControlName="anneeObtention" matInput [matDatepicker]="picker1 ">
+                <mat-datepicker-toggle matSuffix [for]="picker1 "></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Les Technologies Matrise</mat-label>
+                <mat-select formControlName="technologieMatrise" multiple>
+                    <mat-option *ngFor="let technologie of technologies" [value]="technologie">{{technologie.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Experience</mat-label>
+                <input type="number" formControlName="experience" matInput>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Langue</mat-label>
+                <input formControlName="langue" matInput>
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="submit" mat-raised-button color="primary">Envoyer</button>
+        </div>
+        <!-- <mat-form-field appearance="fill ">
+            <mat-label>Select</mat-label>
+            <mat-select>
+                <mat-option value="option ">Option</mat-option>
+            </mat-select>
+        </mat-form-field> -->
+
+    </form>
+</div>

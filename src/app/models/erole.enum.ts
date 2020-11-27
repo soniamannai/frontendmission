@@ -1,0 +1,5 @@
+export enum ERole {
+    ROLE_COLLABORATEUR,
+    ROLE_COMMERCIAL,
+    ROLE_ADMIN
+}
